@@ -1,3 +1,4 @@
+import 'package:device_guard/presentation/authentication/login.screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -40,6 +41,11 @@ class Nav {
       name: Routes.WELCOMELOGIN,
       page: () => const WelcomeLoginScreen(),
       binding: AuthenticationControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.LOGIN,
+      page: () => const LoginScreen(),
+      binding: LoginControllerBinding(),
     ),
   ];
 }

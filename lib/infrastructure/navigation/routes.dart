@@ -7,4 +7,5 @@ class Routes {
   static const HOME = '/home';
   static const SPLASH = '/splash';
   static const WELCOMELOGIN = '/welcome_login';
+  static const LOGIN = '/login';
 }
