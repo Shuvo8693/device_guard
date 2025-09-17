@@ -1,7 +1,10 @@
 import 'package:device_guard/common/app_text_style/google_font_style.dart';
+import 'package:device_guard/infrastructure/navigation/routes.dart';
 import 'package:device_guard/presentation/authentication/widgets/login_option_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class WelcomeLoginScreen extends StatelessWidget {
   const WelcomeLoginScreen({super.key});
@@ -45,7 +48,7 @@ class WelcomeLoginScreen extends StatelessWidget {
                 iconBackgroundColor: Colors.red.withOpacity(0.1),
                 title: 'Guardian',
                 onTap: () {
-                  // Handle Guardian login
+                  Get.toNamed(Routes.LOGIN);
                   print('Guardian login tapped');
                 },
               ),
@@ -59,11 +62,10 @@ class WelcomeLoginScreen extends StatelessWidget {
                 iconBackgroundColor: Colors.orange.withOpacity(0.1),
                 title: 'Children',
                 onTap: () {
-                  // Handle Children login
+                  Get.toNamed(Routes.LOGIN);
                   print('Children login tapped');
                 },
               ),
-
               const Spacer(),
             ],
           ),

@@ -1,3 +1,4 @@
+import 'package:device_guard/common/app_text_style/google_font_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -95,13 +96,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
       cursorColor: AppColors.primaryColor,
       obscureText: _obscureText,
       style: TextStyle(
-        color: widget.textColor?? AppColors.textColor,
+        color: widget.textColor?? AppColors.black,
         fontSize: 16.sp,
       ),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
-          horizontal: widget.contentPaddingHorizontal ?? 20.w,
-          vertical: widget.contentPaddingVertical ?? 20.w,
+          horizontal: widget.contentPaddingHorizontal ?? 15.w,
+          vertical: widget.contentPaddingVertical ?? 15.h,
         ),
         fillColor: widget.fillColor ?? AppColors.white,
         filled: true,
@@ -118,7 +119,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         labelText: widget.labelText,
         hintText: widget.hintText,
-        hintStyle: widget.hintStyle,
+        hintStyle: widget.hintStyle?? GoogleFontStyles.h5(color: AppColors.greyColor),
         labelStyle: widget.labelTextStyle,
         // border: _getDefaultBorder(),
         // enabledBorder: _getDefaultBorder(),

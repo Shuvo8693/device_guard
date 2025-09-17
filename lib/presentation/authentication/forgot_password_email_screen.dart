@@ -4,6 +4,12 @@ import 'package:device_guard/common/widgets/custom_button.dart';
 import 'package:device_guard/common/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../infrastructure/navigation/routes.dart';
+
+
 class ForgotPasswordEmailScreen extends StatefulWidget {
   const ForgotPasswordEmailScreen({super.key});
 
@@ -17,18 +23,9 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
-          'forget_password',
-          style: GoogleFontStyles.h5(
-            color: Colors.grey[600],
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        centerTitle: false,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w),
@@ -68,6 +65,7 @@ class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
               text: 'Send code',
               onTap: () {
                 // Handle send code
+                Get.toNamed(Routes.FORGOT_PASSWORD_OTP);
               },
             ),
           ],

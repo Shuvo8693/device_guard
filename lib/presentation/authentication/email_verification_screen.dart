@@ -2,9 +2,11 @@
 import 'package:device_guard/common/app_text_style/google_font_style.dart';
 import 'package:device_guard/common/widgets/custom_button.dart';
 import 'package:device_guard/common/widgets/custom_pin_field.dart';
-import 'package:device_guard/common/widgets/custom_text_field.dart';
+import 'package:device_guard/infrastructure/navigation/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+
 class EmailVerificationScreen extends StatefulWidget {
   const EmailVerificationScreen({super.key});
 
@@ -22,14 +24,6 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
-          'verify_email',
-          style: GoogleFontStyles.h5(
-            color: Colors.grey[600],
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        centerTitle: false,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w),
@@ -90,7 +84,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
             CustomButton(
               text: 'Verify',
               onTap: () {
-                // Handle verification
+                Get.toNamed(Routes.HOME);
               },
             ),
           ],
