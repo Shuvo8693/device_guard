@@ -1,4 +1,9 @@
+import 'package:device_guard/presentation/authentication/email_verification_screen.dart';
+import 'package:device_guard/presentation/authentication/forgot_password_email_screen.dart';
+import 'package:device_guard/presentation/authentication/forgot_password_otp_screen.dart';
 import 'package:device_guard/presentation/authentication/login.screen.dart';
+import 'package:device_guard/presentation/authentication/reset_password_screen.dart';
+import 'package:device_guard/presentation/authentication/signup.screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -45,7 +50,32 @@ class Nav {
     GetPage(
       name: Routes.LOGIN,
       page: () => const LoginScreen(),
-      binding: LoginControllerBinding(),
+      binding: AuthenticationControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.SIGNUP,
+      page: () => const SignupScreen(),
+      binding: AuthenticationControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.EMAIL_VERIFICATION,
+      page: () => const EmailVerificationScreen(),
+      binding: AuthenticationControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.FORGOT_PASSWORD_EMAIL,
+      page: () => const ForgotPasswordEmailScreen(),
+      binding: AuthenticationControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.FORGOT_PASSWORD_OTP,
+      page: () => const ForgotPasswordOTPScreen(),
+      binding: AuthenticationControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.RESET_PASSWORD,
+      page: () => const ResetPasswordScreen(),
+      binding: AuthenticationControllerBinding(),
     ),
   ];
 }
