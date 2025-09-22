@@ -1,4 +1,9 @@
 import 'package:device_guard/common/app_text_style/google_font_style.dart';
+import 'package:device_guard/presentation/home/widgets/features.dart';
+import 'package:device_guard/presentation/home/widgets/info_card.dart';
+import 'package:device_guard/presentation/home/widgets/screen_time_card.dart';
+import 'package:device_guard/presentation/home/widgets/today_used_app_section.dart';
+import 'package:device_guard/presentation/home/widgets/usage_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:device_guard/common/app_color/app_colors.dart';
@@ -73,22 +78,22 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _buildActionButton(
+                  Features(
                     icon: Icons.phone_android,
                     label: 'Screentime',
                     onTap: () {},
                   ),
-                  _buildActionButton(
+                  Features(
                     icon: Icons.apps,
                     label: 'App Rule',
                     onTap: () {},
                   ),
-                  _buildActionButton(
+                  Features(
                     icon: Icons.schedule,
                     label: 'Schedule',
                     onTap: () {},
                   ),
-                  _buildActionButton(
+                  Features(
                     icon: Icons.assessment,
                     label: 'Report',
                     onTap: () {},
@@ -102,7 +107,7 @@ class HomeScreen extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: _buildInfoCard(
+                    child: InfoCard(
                       icon: Icons.visibility,
                       iconColor: Colors.green,
                       title: 'Screen viewer',
@@ -113,7 +118,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SizedBox(width: 16.w),
                   Expanded(
-                    child: _buildInfoCard(
+                    child: InfoCard(
                       icon: Icons.history,
                       iconColor: Colors.blue,
                       title: 'Browsing History',
@@ -128,12 +133,12 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 24.h),
 
               // Screen Time Section
-              _buildScreenTimeCard(),
+              ScreenTimeCard(),
 
               SizedBox(height: 24.h),
 
               // Today used apps
-              _buildTodayUsedAppsSection(),
+              TodayUsedAppsSection(),
 
               SizedBox(height: 24.h),
 
@@ -183,408 +188,31 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildActionButton({
-    required IconData icon,
-    required String label,
-    required VoidCallback onTap,
-  }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 70.w,
-        child: Column(
-          children: [
-            Container(
-              width: 56.w,
-              height: 56.h,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12.r),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
-                    spreadRadius: 1,
-                    blurRadius: 4,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: Icon(
-                icon,
-                size: 24.sp,
-                color: Colors.grey[600],
-              ),
-            ),
-            SizedBox(height: 8.h),
-            Text(
-              label,
-              style: GoogleFontStyles.h6(
-                color: Colors.grey[600],
-                fontWeight: FontWeight.w500,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
-  Widget _buildInfoCard({
-    required IconData icon,
-    required Color iconColor,
-    required String title,
-    required String subtitle,
-    required String count,
-    required String description,
-  }) {
-    return Container(
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 32.w,
-                height: 32.h,
-                decoration: BoxDecoration(
-                  color: iconColor.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                child: Icon(
-                  icon,
-                  size: 18.sp,
-                  color: iconColor,
-                ),
-              ),
-              SizedBox(width: 8.w),
-              Expanded(
-                child: Text(
-                  title,
-                  style: GoogleFontStyles.h5(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black87,
-                  ),
-                ),
-              ),
-              Icon(
-                Icons.chevron_right,
-                size: 16.sp,
-                color: Colors.grey[400],
-              ),
-            ],
-          ),
-          SizedBox(height: 12.h),
-          Text(
-            count,
-            style: GoogleFontStyles.h4(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            subtitle,
-            style: GoogleFontStyles.h6(
-              color: Colors.grey[600],
-            ),
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            description,
-            style: GoogleFontStyles.h6(
-              color: Colors.grey[500],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildScreenTimeCard() {
-    return Container(
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(
-                Icons.access_time,
-                size: 20.sp,
-                color: Colors.grey[600],
-              ),
-              SizedBox(width: 8.w),
-              Text(
-                'Screen time',
-                style: GoogleFontStyles.h5(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black87,
-                ),
-              ),
-              const Spacer(),
-              Text(
-                'Last update today 10:45pm',
-                style: GoogleFontStyles.h6(
-                  color: Colors.grey[500],
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 16.h),
-          Row(
-            children: [
-              _buildTimeItem('40 min', Colors.red[400]!),
-              SizedBox(width: 16.w),
-              _buildTimeItem('40 min', Colors.grey[300]!),
-              SizedBox(width: 16.w),
-              _buildTimeItem('15 min', Colors.grey[300]!),
-            ],
-          ),
-          SizedBox(height: 12.h),
-          Row(
-            children: [
-              Text(
-                'Social media',
-                style: GoogleFontStyles.h6(
-                  color: Colors.grey[600],
-                ),
-              ),
-              SizedBox(width: 16.w),
-              Text(
-                'Video games',
-                style: GoogleFontStyles.h6(
-                  color: Colors.grey[600],
-                ),
-              ),
-              SizedBox(width: 16.w),
-              Text(
-                'Others',
-                style: GoogleFontStyles.h6(
-                  color: Colors.grey[600],
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildTimeItem(String time, Color color) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          height: 4.h,
-          width: 60.w,
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(2.r),
-          ),
-        ),
-        SizedBox(height: 4.h),
-        Text(
-          time,
-          style: GoogleFontStyles.h6(
-            fontWeight: FontWeight.w500,
-            color: Colors.black87,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildTodayUsedAppsSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Today used apps',
-              style: GoogleFontStyles.h5(
-                fontWeight: FontWeight.w500,
-                color: Colors.black87,
-              ),
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.chevron_left,
-                  size: 20.sp,
-                  color: Colors.grey[400],
-                ),
-                Icon(
-                  Icons.chevron_right,
-                  size: 20.sp,
-                  color: Colors.grey[400],
-                ),
-              ],
-            ),
-          ],
-        ),
-        SizedBox(height: 16.h),
-        SizedBox(
-          height: 80.h,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              _buildAppIcon(Icons.facebook, Colors.blue),
-              _buildAppIcon(Icons.camera_alt, Colors.purple),
-              _buildAppIcon(Icons.message, Colors.blue),
-              _buildAppIcon(Icons.camera, Colors.yellow),
-              _buildAppIcon(Icons.grid_view, Colors.grey),
-              _buildAppIcon(Icons.message, Colors.blue),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildAppIcon(IconData icon, Color color) {
-    return Container(
-      width: 60.w,
-      height: 60.h,
-      margin: EdgeInsets.only(right: 12.w),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(12.r),
-      ),
-      child: Icon(
-        icon,
-        color: Colors.white,
-        size: 24.sp,
-      ),
-    );
-  }
 
   Widget _buildAppUsageHistory() {
     return Row(
       children: [
         Expanded(
-          child: _buildUsageCard(
-            'YouTube app history',
-            '50 minute',
-            '2 videos',
-            Colors.red,
-            Icons.play_arrow,
+          child: UsageCard(
+           title:  'YouTube app history',
+           duration:  '50 minute',
+           count:  '2 videos',
+           color:  Colors.red,
+           icon:  Icons.play_arrow,
           ),
         ),
         SizedBox(width: 16.w),
         Expanded(
-          child: _buildUsageCard(
-            'TikTok app history',
-            '50 minute',
-            '2 videos',
-            Colors.black,
-            Icons.music_note,
+          child: UsageCard(
+            title:  'TikTok app history',
+            duration:'50 minute',
+            count: '2 videos',
+            color:  Colors.black,
+            icon: Icons.music_note,
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildUsageCard(
-      String title,
-      String duration,
-      String count,
-      Color color,
-      IconData icon,
-      ) {
-    return Container(
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 32.w,
-                height: 32.h,
-                decoration: BoxDecoration(
-                  color: color,
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                child: Icon(
-                  icon,
-                  color: Colors.white,
-                  size: 16.sp,
-                ),
-              ),
-              SizedBox(width: 8.w),
-              Expanded(
-                child: Text(
-                  title,
-                  style: GoogleFontStyles.h6(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black87,
-                  ),
-                ),
-              ),
-              Icon(
-                Icons.chevron_right,
-                size: 16.sp,
-                color: Colors.grey[400],
-              ),
-            ],
-          ),
-          SizedBox(height: 12.h),
-          Text(
-            duration,
-            style: GoogleFontStyles.h5(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            count,
-            style: GoogleFontStyles.h6(
-              color: Colors.grey[600],
-            ),
-          ),
-        ],
-      ),
     );
   }
 
