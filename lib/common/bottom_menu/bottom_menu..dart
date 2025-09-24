@@ -84,7 +84,7 @@ class _BottomMenuState extends State<BottomMenu> {
         iconPath,
         height: 28.0.h,
         width: 28.0.w,
-        colorFilter: const ColorFilter.mode(AppColors.greyColor, BlendMode.srcIn), // Inactive icon color
+        colorFilter: const ColorFilter.mode(AppColors.grey, BlendMode.srcIn), // Inactive icon color
       ),
       activeIcon: SvgPicture.asset(
         iconPath,

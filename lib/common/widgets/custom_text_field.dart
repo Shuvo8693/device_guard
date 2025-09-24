@@ -119,7 +119,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         labelText: widget.labelText,
         hintText: widget.hintText,
-        hintStyle: widget.hintStyle?? GoogleFontStyles.h5(color: AppColors.greyColor),
+        hintStyle: widget.hintStyle?? GoogleFontStyles.h5(color: AppColors.grey),
         labelStyle: widget.labelTextStyle,
         // border: _getDefaultBorder(),
         // enabledBorder: _getDefaultBorder(),

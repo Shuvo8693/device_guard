@@ -61,7 +61,7 @@ class AppColors{
   static const Color borderColor =  Color(0xFF2683EB);
   static const Color dark2Color =  Color(0xff565656);
   static const Color secendryColor =  Color(0xFFC4D3F6);
-  static const Color greyColor =  Color(0xFFB5B5B5);
+  static const Color grey =  Color(0xFFB5B5B5);
 
   static BoxShadow shadow=BoxShadow(
     blurRadius: 4,
