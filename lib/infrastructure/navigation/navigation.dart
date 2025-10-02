@@ -85,8 +85,13 @@ class Nav {
     ),
     GetPage(
       name: Routes.CREATEPROFILE,
-      page: () =>  CreateProfileScreen(),
+      page: () => CreateProfileScreen(),
       binding: ProfileControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.SCREEN_TIME,
+      page: () => const ScreenTimeScreen(),
+      binding: ScreenTimeControllerBinding(),
     ),
   ];
 }
