@@ -4,6 +4,7 @@ import 'package:device_guard/presentation/home/widgets/info_card.dart';
 import 'package:device_guard/presentation/home/widgets/screen_time_card.dart';
 import 'package:device_guard/presentation/home/widgets/today_used_app_section.dart';
 import 'package:device_guard/presentation/home/widgets/usage_card.dart';
+import 'package:device_guard/presentation/screen_time/screen_time.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:device_guard/common/app_color/app_colors.dart';
@@ -81,7 +82,14 @@ class HomeScreen extends StatelessWidget {
                   Features(
                     icon: Icons.phone_android,
                     label: 'Screentime',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ScreenTimeScreen(),
+                        ),
+                      );
+                    },
                   ),
                   Features(
                     icon: Icons.apps,
