@@ -93,5 +93,10 @@ class Nav {
       page: () => const ScreenTimeScreen(),
       binding: ScreenTimeControllerBinding(),
     ),
+    GetPage(
+      name: Routes.APP_RULES,
+      page: () => const AppRulesScreen(),
+      binding: AppRulesControllerBinding(),
+    ),
   ];
 }

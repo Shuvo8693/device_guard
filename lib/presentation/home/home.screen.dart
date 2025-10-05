@@ -1,4 +1,5 @@
 import 'package:device_guard/common/app_text_style/google_font_style.dart';
+import 'package:device_guard/presentation/app_rules/app_rules.screen.dart';
 import 'package:device_guard/presentation/home/widgets/features.dart';
 import 'package:device_guard/presentation/home/widgets/info_card.dart';
 import 'package:device_guard/presentation/home/widgets/screen_time_card.dart';
@@ -15,7 +16,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
       appBar: AppBar(
         backgroundColor: const Color(0xFF7BB3E0),
         elevation: 0,
@@ -69,92 +69,101 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(16.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Main action buttons
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Features(
-                    icon: Icons.phone_android,
-                    label: 'Screentime',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ScreenTimeScreen(),
-                        ),
-                      );
-                    },
-                  ),
-                  Features(
-                    icon: Icons.apps,
-                    label: 'App Rule',
-                    onTap: () {},
-                  ),
-                  Features(
-                    icon: Icons.schedule,
-                    label: 'Schedule',
-                    onTap: () {},
-                  ),
-                  Features(
-                    icon: Icons.assessment,
-                    label: 'Report',
-                    onTap: () {},
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 24.h),
-
-              // Screen Viewer and Browsing History Cards
-              Row(
-                children: [
-                  Expanded(
-                    child: InfoCard(
-                      icon: Icons.visibility,
-                      iconColor: Colors.green,
-                      title: 'Screen viewer',
-                      subtitle: 'Screenshots',
-                      count: '10',
-                      description: 'Suspicious screenshot',
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(16.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Main action buttons
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Features(
+                      icon: Icons.phone_android,
+                      label: 'Screentime',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ScreenTimeScreen(),
+                          ),
+                        );
+                      },
                     ),
-                  ),
-                  SizedBox(width: 16.w),
-                  Expanded(
-                    child: InfoCard(
-                      icon: Icons.history,
-                      iconColor: Colors.blue,
-                      title: 'Browsing History',
-                      subtitle: 'Websites searched',
-                      count: '10',
-                      description: 'Blocked website searched',
+                    Features(
+                      icon: Icons.apps,
+                      label: 'App Rule',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AppRulesScreen(),
+                          ),
+                        );
+                      },
                     ),
-                  ),
-                ],
-              ),
+                    Features(
+                      icon: Icons.schedule,
+                      label: 'Schedule',
+                      onTap: () {},
+                    ),
+                    Features(
+                      icon: Icons.assessment,
+                      label: 'Report',
+                      onTap: () {},
+                    ),
+                  ],
+                ),
 
-              SizedBox(height: 24.h),
+                SizedBox(height: 24.h),
 
-              // Screen Time Section
-              ScreenTimeCard(),
+                // Screen Viewer and Browsing History Cards
+                Row(
+                  children: [
+                    Expanded(
+                      child: InfoCard(
+                        icon: Icons.visibility,
+                        iconColor: Colors.green,
+                        title: 'Screen viewer',
+                        subtitle: 'Screenshots',
+                        count: '10',
+                        description: 'Suspicious screenshot',
+                      ),
+                    ),
+                    SizedBox(width: 16.w),
+                    Expanded(
+                      child: InfoCard(
+                        icon: Icons.history,
+                        iconColor: Colors.blue,
+                        title: 'Browsing History',
+                        subtitle: 'Websites searched',
+                        count: '10',
+                        description: 'Blocked website searched',
+                      ),
+                    ),
+                  ],
+                ),
 
-              SizedBox(height: 24.h),
+                SizedBox(height: 24.h),
 
-              // Today used apps
-              TodayUsedAppsSection(),
+                // Screen Time Section
+                ScreenTimeCard(),
 
-              SizedBox(height: 24.h),
+                SizedBox(height: 24.h),
 
-              // App usage history
-              _buildAppUsageHistory(),
+                // Today used apps
+                TodayUsedAppsSection(),
 
-              SizedBox(height: 20.h), // Bottom padding
-            ],
+                SizedBox(height: 24.h),
+
+                // App usage history
+                _buildAppUsageHistory(),
+
+                SizedBox(height: 20.h), // Bottom padding
+              ],
+            ),
           ),
         ),
       ),

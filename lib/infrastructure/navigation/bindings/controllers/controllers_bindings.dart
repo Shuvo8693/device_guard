@@ -1,3 +1,4 @@
+export 'package:device_guard/infrastructure/navigation/bindings/controllers/app_rules.controller.binding.dart'; 
 export 'package:device_guard/infrastructure/navigation/bindings/controllers/authentication.controller.binding.dart'; 
 export 'package:device_guard/infrastructure/navigation/bindings/controllers/features.controller.binding.dart'; 
 export 'package:device_guard/infrastructure/navigation/bindings/controllers/home.controller.binding.dart';

@@ -12,8 +12,9 @@ class Routes {
   static const HOME = '/home';
   static const LOGIN = '/login';
   static const RESET_PASSWORD = '/reset_password';
+  static const SCREEN_TIME = '/screen-time';
   static const SIGNUP = '/signup';
   static const SPLASH = '/splash';
   static const WELCOMELOGIN = '/welcome_login';
-  static const SCREEN_TIME = '/screen-time';
+  static const APP_RULES = '/app-rules';
 }
